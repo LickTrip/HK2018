@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.teaching.fishball.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/seekBarVerticalLayout"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/seekBarHorizontalLayout"
+        android:orientation="vertical">
+
+        <com.example.teaching.fishball.View.VertSeekBar
+            android:id="@+id/leftMotorSeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:thumb="@drawable/seekbar_changer"
+            android:theme="@style/CustomSeekBar"
+            android:thumbOffset="1dp"
+            android:enabled="false"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/notesLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/leftMotorSeekBar"
+            app:layout_constraintRight_toLeftOf="@+id/rightMotorSeekBar"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Switch
+                android:id="@+id/switch_lock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorDirtyWhite"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:text="LOCK"
+                android:textOn="BOTH"
+                android:textOff="SINGLE"
+                android:checked="false"
+                android:enabled="false"
+                android:theme="@style/CustomSwitch"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/textViewLeftSeek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorDirtyWhite"
+                android:text="Left Motor: 0%"
+                app:layout_constraintTop_toTopOf="@+id/switch_lock" />
+
+            <TextView
+                android:id="@+id/textViewRightSeek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorDirtyWhite"
+                android:gravity="center"
+                android:text="Right Motor: 0%"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLeftSeek" />
+
+            <TextView
+                android:id="@+id/textViewMiddleSeek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorDirtyWhite"
+                android:gravity="center"
+                android:text="Middle Motors: 0%"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRightSeek" />
+            <Button
+                android:id="@+id/StopIt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stop"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:enabled="false"
+                android:onClick="stopMot"/>
+
+        </LinearLayout>
+
+        <com.example.teaching.fishball.View.VertSeekBar
+            android:id="@+id/rightMotorSeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:thumb="@drawable/seekbar_changer"
+            android:theme="@style/CustomSeekBar"
+            android:thumbOffset="1dp"
+            android:enabled="false"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/seekBarHorizontalLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/seekBarVerticalLayout"
+        >
+
+        <SeekBar
+            android:id="@+id/middleMotorSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:thumb="@drawable/seekbar_changer"
+            android:theme="@style/CustomSeekBar"
+            android:thumbOffset="1dp"
+            android:enabled="false"
+            />
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>
